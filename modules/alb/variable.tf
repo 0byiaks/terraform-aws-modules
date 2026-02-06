@@ -26,7 +26,7 @@ variable "load_balancer_type" {
   type        = string
 }
 
-variable "instance_type" {
+variable "target_type" {
   description = "Type of the instance"
   type        = string
 }

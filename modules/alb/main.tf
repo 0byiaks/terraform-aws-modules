@@ -14,7 +14,7 @@ resource "aws_alb" "load_balancer" {
 resource "aws_alb_target_group" "alb_target_group" {
   name = "${var.environment}-${var.project_name}-alb-target-group"
   port = 80
-  target_type = var.instance_type
+  target_type = var.target_type
   protocol = "HTTP"
   vpc_id = var.vpc_id
   health_check { 
@@ -24,7 +24,7 @@ resource "aws_alb_target_group" "alb_target_group" {
     matcher = "200,301,302"
     healthy_threshold = 3
     unhealthy_threshold = 3
-    timeout = 5
+    timeout = 10
     interval = 30
   }
   tags = {
